@@ -13,10 +13,19 @@
         boolean isItRaining = false;
         boolean doYouLikePizza = true;
         char gender = 'F';
+        double pi = 3.14159;
 
         final int SIDES_OF_A_DICE = 6;
         final String API_KEY = "b75b703d8195f6f433ca";
         final String GITHUB_API_BASE_URL = "https://api.github.com";
+
+        carPrice++;
+        System.out.println("carPrice " + carPrice);
+
+        int aNewVariable = dayOfMonth + carPrice;
+
+        aNewVariable--;
+        System.out.println("aNewVariable " + aNewVariable);
 
         System.out.println(SIDES_OF_A_DICE);
 
@@ -26,5 +35,9 @@
         System.out.println(name);
         System.out.println("Mendoza");
         System.out.println("Rodriguez");
+
+        int almostPi = (int) pi;
+        System.out.println("almostPi " + almostPi);
+
     }
 }
