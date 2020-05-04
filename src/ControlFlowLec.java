@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class ControlFlowLec {
+    //Methods used to illustrate the difference between && and &.
     public static boolean left(boolean value) {
         System.out.printf("ControlFlowLec.left was called with a %s value.\n", value);
         return value;
@@ -53,9 +54,13 @@ public class ControlFlowLec {
 //        boolean showTheAdminPanel = isLoggedIn && isAdmin && age > 21;
 //        System.out.println("showTheAdminPanel = " + showTheAdminPanel);
 
-        // showing evaluation of one side when using a double ampersand.
+        // Showing that Java optimizes when using && by only evaluating what needs to be evaluated.
+        // The first false means that the entire expression is false therefore when using && the
+        // second expression is not evaluated.
+
 //        boolean booleanResult = left(false) && right(false);
 //        System.out.println("booleanResult = " + booleanResult);
+
         // || Or
 //        boolean isAdmin = false;
 //        boolean isAuthor = false;
@@ -146,14 +151,14 @@ public class ControlFlowLec {
 //            System.out.println("From a for loop: a = " + a);
 //        }
 
-//        for(int i = 1; i <= 10; i++){ // <--+
-//            if(i % 2 == 1) { //             |
-//                continue; // ---------------+ Continue to the next iteration.
-//            } else if( i > 5) {
-//                break; // --------------------+ Break out of the loop.
-//            } //                              |
-//            System.out.println("i = " + i);// |
-//        }  //                                 |
-//        // <----------------------------------+
+        for(int i = 1; i <= 10; i++){ // <--+
+            if(i % 2 == 1) { //             |
+                continue; // ---------------+ Continue to the next iteration.
+            } else if( i > 5) {
+                break; // --------------------+ Break out of the loop.
+            } //                              |
+            System.out.println("i = " + i);// |
+        }  //                                 |
+        // <----------------------------------+
     }
 }
