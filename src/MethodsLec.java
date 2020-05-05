@@ -1,6 +1,11 @@
+import java.util.Scanner;
+
 public class MethodsLec {
 
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        validateCurrency(input);
+
         countdownRecursion(10);
         countdown();
         System.out.println(sayHello("Fernando", "Mendoza"));
@@ -51,4 +56,18 @@ public class MethodsLec {
         countdownRecursion(n);
     }
 
+
+    // that only looks for $
+    public static void validateCurrency(Scanner scan){
+        System.out.println("Give me an amount: ");
+        String amount = scan.nextLine();
+        // how to stop
+        if(amount.startsWith("$")){
+            System.out.println("It's valid money format");
+            return;
+        }
+        // how to proceed, how to run process again?
+        System.out.println("Invalid money format, try again");
+        validateCurrency(scan);
+    }
 }
