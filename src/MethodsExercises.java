@@ -1,9 +1,12 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class MethodsExercises {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+
+        rollDice(scan);
 
         while(true){
             System.out.println("factorial test");
@@ -84,6 +87,25 @@ public class MethodsExercises {
             sum *= fa;
         }
         System.out.println("factorial of " + userInput +" = " + sum);
+    }
+
+    public static void rollDice(Scanner scan){
+
+        while( true ){
+            System.out.println("rollDice test");
+
+            System.out.println("Give me the number of sides");
+            short n = Short.parseShort(scan.nextLine());
+            int range = n - 1 + 1;
+            System.out.println("roll dice 1 = " + ((int)(Math.random() * range) + 1) );
+            System.out.println("roll dice 2 = " + ((int)(Math.random() * range) + 1) );
+
+            System.out.println("Do you wish to continue? y/n");
+            if(scan.nextLine().toLowerCase().equals("n")){
+                break;
+            }
+        }
+
     }
 
 }
