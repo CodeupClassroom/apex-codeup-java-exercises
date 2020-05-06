@@ -1,5 +1,12 @@
+import java.util.Scanner;
+
 public class MethodsExercises {
     public static void main(String[] args) {
+
+
+        getInteger(1, 10);
+
+
         System.out.println( 2 == sum(1,1) );
         System.out.println( 0 == sum(-1,1) );
         System.out.println( 0 != sum(-2,-5) );
@@ -42,6 +49,22 @@ public class MethodsExercises {
 
     public static double modulus(double arg1, double arg2){
         return arg1 % arg2;
+    }
+
+    public static int getInteger(int min, int max) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter a number between 1 and 10: ");
+        int userInput = Integer.parseInt(scan.nextLine());
+
+        // how to proceed
+        if( userInput < min || userInput > max ){
+            System.out.println("Number is outside of the range");
+            return getInteger(min, max);
+        } else {
+            // how to stop
+            System.out.println("Number is within the range");
+            return userInput;
+        }
     }
 
 }
