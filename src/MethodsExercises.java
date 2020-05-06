@@ -13,6 +13,11 @@ public class MethodsExercises {
 
         System.out.println( 2 == divide(10,5) );
         System.out.println( 2 == divide(30,15) );
+        System.out.println( 0 == divide(30,0) );
+
+        System.out.println( 1 == modulus(5,2) );
+        System.out.println( 0 == modulus(6,2) );
+
     }
 
     public static double sum(double arg1, double arg2){
@@ -28,7 +33,15 @@ public class MethodsExercises {
     }
 
     public static double divide(double arg1, double arg2){
+        if(arg2 == 0){
+            System.out.println("Division by zero is not possible, zero is returned");
+            return 0;
+        }
         return arg1 / arg2;
+    }
+
+    public static double modulus(double arg1, double arg2){
+        return arg1 % arg2;
     }
 
 }
