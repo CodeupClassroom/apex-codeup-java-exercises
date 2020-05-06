@@ -1,12 +1,22 @@
 import java.util.Scanner;
 
 public class MethodsExercises {
+
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
 
+        while(true){
+            System.out.println("factorial test");
+            factorial();
+            System.out.println("Do you wish to continue? y/n");
+            String answer = scan.nextLine();
+            if(answer.toLowerCase().equals("n")){
+                break;
+            }
+        }
 
+        System.out.println("getInteger test");
         getInteger(1, 10);
-
-
         System.out.println( 2 == sum(1,1) );
         System.out.println( 0 == sum(-1,1) );
         System.out.println( 0 != sum(-2,-5) );
@@ -65,6 +75,15 @@ public class MethodsExercises {
             System.out.println("Number is within the range");
             return userInput;
         }
+    }
+
+    public static void factorial(){
+        int userInput = getInteger(1,10);
+        long sum = 1;
+        for (int fa = userInput; fa > 0; fa--){
+            sum *= fa;
+        }
+        System.out.println("factorial of " + userInput +" = " + sum);
     }
 
 }
