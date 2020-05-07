@@ -2,6 +2,9 @@ package oop;
 
 public class CohortApp {
     public static void main(String[] args) {
+
+        System.out.println(Cohort.companyName + " attendance app");
+
         Cohort apex = new Cohort("Apex", "2020-02-24", (byte) 16);
         apex.endDate = "2020-07-24";
         String today = "july";

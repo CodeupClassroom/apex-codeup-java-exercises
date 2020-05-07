@@ -2,6 +2,8 @@ package oop;
 
 public class Cohort {
 
+    static String companyName = "Codeup";
+
     private String name;
     private String startDate;
     public String endDate;
