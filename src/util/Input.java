@@ -6,6 +6,8 @@ public class Input {
 
     private Scanner scanner = new Scanner(System.in);
 
+//    public Input(){}
+
     public String getString(){
         System.out.println("Type something: ");
         return scanner.nextLine();
@@ -30,6 +32,21 @@ public class Input {
     public int getInt(){
         System.out.println("Give me an integer:");
         return Integer.parseInt(scanner.nextLine());
+    }
+
+    public double getDouble(double min, double max){
+        System.out.println("Give me a decimal between " + min + " and "  + max);
+        double aDecimal = Double.parseDouble(scanner.nextLine());
+        if(aDecimal < min || aDecimal > max){
+            System.out.println("Outside of the range, try again");
+            return getDouble(min, max);
+        }
+        return aDecimal;
+    }
+
+    public double getDouble(){
+        System.out.println("Give me a decimal:");
+        return Double.parseDouble(scanner.nextLine());
     }
 
 }
