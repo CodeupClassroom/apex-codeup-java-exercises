@@ -17,4 +17,19 @@ public class Input {
         return answer.equals("y") ? true : false;
     }
 
+    public int getInt(int min, int max){
+        System.out.println("Give me a number between " + min + " and "  + max);
+        int aNumber = Integer.parseInt(scanner.nextLine());
+        if(aNumber < min || aNumber > max){
+            System.out.println("Outside of the range, try again");
+            return getInt(min, max);
+        }
+        return aNumber;
+    }
+
+    public int getInt(){
+        System.out.println("Give me an integer:");
+        return Integer.parseInt(scanner.nextLine());
+    }
+
 }

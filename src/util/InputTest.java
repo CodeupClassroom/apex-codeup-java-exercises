@@ -5,7 +5,11 @@ public class InputTest {
         Input input = new Input();
 //        System.out.println("you typed: " + input.getString());
 
-        System.out.println("yes or no: " + input.yesNo());
+//        System.out.println("yes or no: " + input.yesNo());
+
+//        System.out.println("input.getInt(1,5) = " + input.getInt(1,5));
+
+//        System.out.println("input.getInt() = " + input.getInt());
 
     }
 }
