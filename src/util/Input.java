@@ -1,9 +1,9 @@
 package util;
 
+import java.nio.file.attribute.UserPrincipal;
 import java.util.Scanner;
 
 public class Input {
-
     private Scanner scanner = new Scanner(System.in);
 
 //    public Input(){}
