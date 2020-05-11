@@ -25,4 +25,16 @@ public class Person {
         }
     }
 
+    public String getFirstName(){
+        return this.firstName;
+    }
+
+    public String getLastName(){
+        return this.lastName;
+    }
+
+    public String getFullName(){
+        return this.getFirstName() + " " + this.getLastName();
+    }
+
 }
