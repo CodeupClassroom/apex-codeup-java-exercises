@@ -9,5 +9,13 @@ public class InheritanceTest {
         System.out.println(fer.sayHello());
         fer.doWork();
 
+        SuperHero leslie = new SuperHero("Leslie", "Hirsh", "SuperKid");
+        System.out.println(leslie.sayHello());
+        System.out.println("leslie.getFirstName() = " + leslie.getFirstName());
+        System.out.println("leslie.getLastName() = " + leslie.getLastName());
+
+        System.out.println("leslie.getSecretIdentity() = " + leslie.getSecretIdentity());
+
+
     }
 }
