@@ -95,6 +95,7 @@ public class CollectionsLec {
             System.out.println("id = " + key);
             Person tempPerson = githubUsernames.get(key);
             System.out.println("fullName = " + tempPerson.getFullName() );
+            System.out.println("tempPerson.sayHello() = " + tempPerson.sayHello());
         }
     }
 
