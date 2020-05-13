@@ -1,6 +1,6 @@
 package oop.review;
 
-public class Album extends PlayableItem {
+public class Album implements Playable {
 
     private Song[] trackList;
     private String releaseDate;
@@ -44,5 +44,13 @@ public class Album extends PlayableItem {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing album: " + this.getName());
+        for (Song currentSong : this.getTrackList()) {
+            currentSong.play();
+        }
     }
 }

@@ -11,11 +11,11 @@ public class MusicApp {
                 new Song("Ocean", "Goldfrapp")
         };
 
-        Album record = new Album(trackList, "2017", "Mute Artists", "Silver eye");
+        Playable record = new Album(trackList, "2017", "Mute Artists", "Silver eye");
+        Playable song = trackList[0];
 
-        PlayableItem mp3Player = new PlayableItem();
-        mp3Player.play(trackList[trackList.length-1]);
-        mp3Player.play(record);
+        song.play();
+        record.play();
 
     }
 }

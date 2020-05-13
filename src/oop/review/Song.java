@@ -1,6 +1,6 @@
 package oop.review;
 
-public class Song  extends PlayableItem{
+public class Song implements Playable {
 
     private String title;
     private String artist;
@@ -24,5 +24,10 @@ public class Song  extends PlayableItem{
 
     public void setArtist(String artist) {
         this.artist = artist;
+    }
+
+    @Override
+    public void play(){
+        System.out.println("Playing song: " + this.getTitle() + " from  " + this.getArtist());
     }
 }
