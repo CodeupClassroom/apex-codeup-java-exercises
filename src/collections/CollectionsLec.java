@@ -4,6 +4,7 @@ import oop.Person;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class CollectionsLec {
 
@@ -45,7 +46,6 @@ public class CollectionsLec {
 
     }
 
-
     public static void personTest(){
 
         //Person[] people = size, which props(?)
@@ -62,23 +62,28 @@ public class CollectionsLec {
     }
 
     public static void hashMapTest(){
-//        HashMap<Long, String> users = new HashMap<>();
-//        users.put(1L, "fmendozaro");
-//        users.put(2000000000L, "douglas");
-//
-//        if(users.containsKey(1L)){
-//            System.out.println("users.get(1L) = " + users.get(1L));
-//        }
-//
-//        System.out.println("users.get(20L) = " + users.getOrDefault(20L, "No record found with that key"));
-//
-//        System.out.println("users.containsValue(\"douglas\") = " + users.containsValue("douglas"));
-//        System.out.println("users.containsValue(\"douglass\") = " + users.containsValue("douglass"));
+        HashMap<Long, String> users = new HashMap<>();
+        users.put(1L, "fmendozaro");
+        users.put(2000000000L, "douglas");
+
+        if(users.containsKey(1L)){
+            System.out.println("users.get(1L) = " + users.get(1L));
+        }
+
+        System.out.println("users.get(20L) = " + users.getOrDefault(20L, "No record found with that key"));
+
+        System.out.println("users.containsValue(\"douglas\") = " + users.containsValue("douglas"));
+        System.out.println("users.containsValue(\"douglass\") = " + users.containsValue("douglass"));
 
         HashMap<Long, Person> githubUsernames = new HashMap<>();
         githubUsernames.putIfAbsent(3L, new Person("Fer", "Mendoza", true));
         githubUsernames.putIfAbsent(5L, new Person("Stacy", "Malibu", false));
-        githubUsernames.putIfAbsent(5L, new Person("Stacy", "Malibu", false));
+        githubUsernames.putIfAbsent(6L, new Person("Stacy", "Malibus", false));
+
+        Person deleteRecord = githubUsernames.remove(3L);
+        System.out.println(deleteRecord.getFullName() + " was removed");
+
+        githubUsernames.replace(5L, new Person("Laura", "Stephens", true));
 
         // you can loop thru the list of values
         for (Person person : githubUsernames.values()) {
@@ -97,6 +102,13 @@ public class CollectionsLec {
             System.out.println("fullName = " + tempPerson.getFullName() );
             System.out.println("tempPerson.sayHello() = " + tempPerson.sayHello());
         }
+
+        System.out.println("githubUsernames = " + githubUsernames.isEmpty());
+
+        githubUsernames.clear();
+
+        System.out.println("githubUsernames = " + githubUsernames.isEmpty());
+
     }
 
 }
