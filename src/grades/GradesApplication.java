@@ -23,8 +23,13 @@ public class GradesApplication {
         sophie.addGrade(100);
         sophie.addGrade(50);
 
+        Student vivian = new Student("Vivan C");
+        vivian.addGrade(87);
+        vivian.addGrade(99);
+
         students.put("jreich5", justin);
         students.putIfAbsent("sophiek", sophie);
+        students.putIfAbsent("vivianc", vivian);
 
         cli(students);
 
@@ -41,11 +46,19 @@ public class GradesApplication {
             }
 
             System.out.println("What student would you like to see more information on?\n");
-            String userInput = input.getString();
-            if(students.containsKey(userInput)){
-                System.out.println("found it");
+            String typedKey = input.getString();
+            if(students.containsKey(typedKey)){
+
+                Student currentStudent = students.get(typedKey);
+
+                System.out.println(String.format("Name: %s - GitHub Username: %s\n"
+                                + "Current Average: %.2f",
+                        currentStudent.getName(),
+                        typedKey,
+                        currentStudent.getGradeAverage()
+                        ));
             }else{
-                System.out.println("Sorry, no student found with the GitHub username of "+ userInput);
+                System.out.println("Sorry, no student found with the GitHub username of "+ typedKey);
             }
             System.out.println("Would you like to see another student?");
         }while(input.yesNo());
