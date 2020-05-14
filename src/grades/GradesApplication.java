@@ -63,6 +63,8 @@ public class GradesApplication {
             System.out.println("Would you like to see another student?");
         }while(input.yesNo());
 
+        System.out.println("Goodbye, and have a wonderful day!");
+
     }
 
 }
