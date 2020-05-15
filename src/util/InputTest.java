@@ -8,7 +8,7 @@ public class InputTest {
 //        System.out.println("yes or no: " + input.yesNo());
 
 //        System.out.println("input.getInt(1,5) = " + input.getInt(1,5));
-
+//
 //        System.out.println("input.getInt() = " + input.getInt());
 
         System.out.println("input.getDouble() = " + input.getDouble());
