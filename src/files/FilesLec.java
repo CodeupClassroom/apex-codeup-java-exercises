@@ -32,26 +32,39 @@ public class FilesLec {
         Path dataFile = Paths.get(directory, filename);
         Path mySecondFile = Paths.get(directory, secondName);
 
-        if (!Files.exists(dataFile)) {
+        createDir(dataDirectory);
+
+        createAndCheckFile(dataFile);
+        createAndCheckFile(mySecondFile);
+
+        writeFile(dataFile, numberList);
+        writeFile(mySecondFile, groceryList);
+
+        readFile(dataFile);
+        readFile(mySecondFile);
+
+    }
+
+    private static void createDir(Path aDir) {
+        if (Files.notExists(aDir)) {
             try {
-                Files.createFile(dataFile);
+                Files.createDirectory(aDir);
             } catch (IOException e) {
                 System.out.println("Problems creating the directory");
                 e.printStackTrace();
             }
         }
+    }
 
-        createFile(dataFile);
-        createFile(mySecondFile);
-
-        try {
-            Files.write(dataFile, numberList);
-            Files.write(mySecondFile, groceryList, StandardOpenOption.APPEND);
-        } catch (IOException e){
-            System.out.println("Problems writing in the file");
-            e.printStackTrace();
+    private static void createAndCheckFile(Path aFile) {
+        if (Files.notExists(aFile)) {
+            try {
+                Files.createFile(aFile);
+            } catch (IOException e) {
+                System.out.println("Problems creating the file");
+                e.printStackTrace();
+            }
         }
-
     }
 
     public static void createFile(Path aFile) {
@@ -62,6 +75,28 @@ public class FilesLec {
                 System.out.println("Problems creating the file");
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static void writeFile(Path aFile, List<String> aList){
+        try {
+            Files.write(aFile, aList);
+//            Files.write(aFile, aList, StandardOpenOption.APPEND);
+        } catch (IOException e){
+            System.out.println("Problems writing in the file");
+            e.printStackTrace();
+        }
+    }
+
+    public static void readFile(Path aFile){
+        try{
+            List<String> lines = Files.readAllLines(aFile);
+            for (String line: lines) {
+                System.out.println("lines = " + line);
+            }
+        } catch (IOException e){
+            System.out.println("Problems reading the file");
+            e.printStackTrace();
         }
     }
 
