@@ -9,7 +9,11 @@ public class Input {
 //    public Input(){}
 
     public String getString(){
-        System.out.println("Type something: ");
+        return this.getString("Type something: ");
+    }
+
+    public String getString(String prompt) {
+        System.out.println(prompt);
         return scanner.nextLine();
     }
 
@@ -20,10 +24,9 @@ public class Input {
     }
 
     public int getInt(int min, int max){
-        System.out.println("Give me a number between " + min + " and "  + max);
         int aNumber;
         try {
-            aNumber = Integer.valueOf(this.getString());
+            aNumber = Integer.valueOf(this.getString("Give me a number between " + min + " and "  + max));
         } catch (NumberFormatException e) {
             return getInt(min, max);
         }
@@ -36,20 +39,17 @@ public class Input {
     }
 
     public int getInt(){
-        System.out.println("Give me an integer:");
         try {
-            return Integer.valueOf(this.getString());
+            return Integer.valueOf(this.getString("Give me an integer:"));
         } catch (NumberFormatException e) {
             return getInt();
         }
     }
 
     public double getDouble(double min, double max){
-
-        System.out.println("Give me a decimal between " + min + " and "  + max);
         double aDecimal;
         try {
-            aDecimal = Double.valueOf(this.getString());
+            aDecimal = Double.valueOf(this.getString("Give me a decimal between " + min + " and "  + max));
         } catch (NumberFormatException e) {
             return getDouble(min, max);
         }
@@ -62,9 +62,8 @@ public class Input {
     }
 
     public double getDouble(){
-        System.out.println("Give me a decimal:");
         try {
-            return Double.valueOf(this.getString());
+            return Double.valueOf(this.getString("Give me a decimal:"));
         } catch (NumberFormatException e) {
             return getDouble();
         }
