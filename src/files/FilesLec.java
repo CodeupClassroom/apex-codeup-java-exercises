@@ -29,20 +29,43 @@ public class FilesLec {
         // where the folder is gonna live
         Path dataDirectory = Paths.get(directory);
         // where the file is gonna live
-        Path dataFile = Paths.get(directory, filename);
-        Path mySecondFile = Paths.get(directory, secondName);
+        Path numbersFilePath = Paths.get(directory, filename);
+        Path groceryFilePath = Paths.get(directory, secondName);
 
         createDir(dataDirectory);
 
-        createAndCheckFile(dataFile);
-        createAndCheckFile(mySecondFile);
+        createAndCheckFile(numbersFilePath);
+        createAndCheckFile(groceryFilePath);
 
-        writeFile(dataFile, numberList);
-        writeFile(mySecondFile, groceryList);
+        writeFile(numbersFilePath, numberList);
+        writeFile(groceryFilePath, groceryList);
 
-        readFile(dataFile);
-        readFile(mySecondFile);
+        readFile(numbersFilePath);
+        readFile(groceryFilePath);
 
+        List<String> modifiedGrocery = replaceItem(groceryFilePath, "milk" , "cream");
+
+        writeFile(groceryFilePath, modifiedGrocery);
+    }
+
+    private static List<String> replaceItem(Path aFile, String find, String replacement){
+
+        List<String> tempList = new ArrayList<>();
+
+        try {
+            List<String> lines = Files.readAllLines(aFile);
+            for (String line : lines) {
+                if(line.equals(find)){
+                    tempList.add(replacement);
+                    continue;
+                }
+                tempList.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return tempList;
     }
 
     private static void createDir(Path aDir) {
