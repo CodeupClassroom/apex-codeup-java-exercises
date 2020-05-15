@@ -40,12 +40,26 @@ public class FilesLec {
         writeFile(numbersFilePath, numberList);
         writeFile(groceryFilePath, groceryList);
 
-        readFile(numbersFilePath);
-        readFile(groceryFilePath);
+        readFile(numbersFilePath, true);
+        readFile(groceryFilePath, true);
 
         List<String> modifiedGrocery = replaceItem(groceryFilePath, "milk" , "cream");
 
         writeFile(groceryFilePath, modifiedGrocery);
+
+        // check if an item exists in the file, simulate contains return true/false
+        System.out.println("fileContains(\"cheese\", groceryFilePath) = " + fileContains("cheese", groceryFilePath));
+        System.out.println("fileContains(\"grapes\", groceryFilePath) = " + fileContains("grapes", groceryFilePath));
+    }
+
+    private static boolean fileContains(String needle, Path aFile) {
+        List<String> lines = readFile(aFile, false);
+        for (String line : lines) {
+            if(line.equals(needle)){
+                return true;
+            }
+        }
+        return false;
     }
 
     private static List<String> replaceItem(Path aFile, String find, String replacement){
@@ -111,15 +125,21 @@ public class FilesLec {
         }
     }
 
-    public static void readFile(Path aFile){
+    public static List<String> readFile(Path aFile, boolean print){
+        List<String> lines;
         try{
-            List<String> lines = Files.readAllLines(aFile);
-            for (String line: lines) {
-                System.out.println("lines = " + line);
+            lines = Files.readAllLines(aFile);
+            if(print == true){
+                for (String line: lines) {
+                    System.out.println("lines = " + line);
+                }
+                return null;
             }
+            return lines;
         } catch (IOException e){
             System.out.println("Problems reading the file");
             e.printStackTrace();
+            return null;
         }
     }
 
